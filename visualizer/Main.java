@@ -32,8 +32,8 @@ public class Main {
             @Override
             public void windowOpened(WindowEvent e) {
                 while (alg.hasNextStep()) {
-                    drawVisual(canvas, alg.nextStep());
                     try { Thread.sleep(500); } catch (InterruptedException ex) {}
+                    drawVisual(canvas, alg.nextStep());
                 }
             }
         });
@@ -56,7 +56,7 @@ public class Main {
             g2d.setColor(columns.get(i).getValue());
             int height = (int) (columns.get(i).getKey() * heightUnit);
             g2d.fillRect(
-                    offsetX + (spacing + colWidth) * i,
+                    offsetX + colWidth * i + spacing,
                     canvas.getHeight() - offsetY - height,
                     colWidth - spacing,
                     height
